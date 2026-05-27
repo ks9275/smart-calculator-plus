@@ -55,9 +55,9 @@ class _PercentScreenState extends State<PercentScreen> {
 
     return Column(
       children: [
-        _Field('원래 가격 (원)', _priceCtrl, '예) 50000'),
+        _Field('원래 가격 (원)', _priceCtrl, '예) 50000', onChanged: () => setState(() {})),
         const SizedBox(height: 12),
-        _Field('할인율 (%)', _discountCtrl, '예) 20'),
+        _Field('할인율 (%)', _discountCtrl, '예) 20', onChanged: () => setState(() {})),
         const SizedBox(height: 20),
         _ResultCard(children: [
           _ResultRow('할인 금액', '${_fmt(saved)} 원', cs),
@@ -80,12 +80,12 @@ class _PercentScreenState extends State<PercentScreen> {
 
     return Column(
       children: [
-        _Field('금액 (원)', _billCtrl, '예) 35000'),
+        _Field('금액 (원)', _billCtrl, '예) 35000', onChanged: () => setState(() {})),
         const SizedBox(height: 12),
         Row(children: [
-          Expanded(child: _Field('팁 (%)', _tipCtrl, '예) 10')),
+          Expanded(child: _Field('팁 (%)', _tipCtrl, '예) 10', onChanged: () => setState(() {}))),
           const SizedBox(width: 12),
-          Expanded(child: _Field('인원 수', _peopleCtrl, '예) 3', integer: true)),
+          Expanded(child: _Field('인원 수', _peopleCtrl, '예) 3', integer: true, onChanged: () => setState(() {}))),
         ]),
         const SizedBox(height: 20),
         _ResultCard(children: [
@@ -109,9 +109,9 @@ class _PercentScreenState extends State<PercentScreen> {
 
     return Column(
       children: [
-        _Field('이전 값', _oldCtrl, '예) 100'),
+        _Field('이전 값', _oldCtrl, '예) 100', onChanged: () => setState(() {})),
         const SizedBox(height: 12),
-        _Field('현재 값', _newCtrl, '예) 120'),
+        _Field('현재 값', _newCtrl, '예) 120', onChanged: () => setState(() {})),
         const SizedBox(height: 20),
         _ResultCard(children: [
           _ResultRow('변화량', '${isIncrease ? '+' : ''}${_fmt(diff)}', cs),
@@ -137,9 +137,9 @@ class _PercentScreenState extends State<PercentScreen> {
 
     return Column(
       children: [
-        _Field('부분 값', _partCtrl, '예) 30'),
+        _Field('부분 값', _partCtrl, '예) 30', onChanged: () => setState(() {})),
         const SizedBox(height: 12),
-        _Field('전체 값', _totalCtrl, '예) 200'),
+        _Field('전체 값', _totalCtrl, '예) 200', onChanged: () => setState(() {})),
         const SizedBox(height: 20),
         _ResultCard(children: [
           _ResultRow('${_fmt(part)} / ${_fmt(total)}', '${_fmt(rate)} %', cs, highlight: true),
@@ -233,7 +233,9 @@ class _Field extends StatelessWidget {
   final TextEditingController ctrl;
   final String hint;
   final bool integer;
-  const _Field(this.label, this.ctrl, this.hint, {this.integer = false});
+  final VoidCallback? onChanged;
+  const _Field(this.label, this.ctrl, this.hint,
+      {this.integer = false, this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -246,7 +248,7 @@ class _Field extends StatelessWidget {
       inputFormatters: [
         FilteringTextInputFormatter.allow(integer ? RegExp(r'[0-9]') : RegExp(r'[0-9.]')),
       ],
-      onChanged: (_) => (context as Element).markNeedsBuild(),
+      onChanged: (_) => onChanged?.call(),
       decoration: InputDecoration(
         labelText: label,
         hintText: hint,
