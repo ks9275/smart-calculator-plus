@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Calculator Plus</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="calculator">
+    <div class="header">
+      <span class="title">Smart Calculator <span class="plus">+</span></span>
+      <button class="mode-toggle" id="modeToggle" title="다크/라이트 모드 전환">🌙</button>
+    </div>
+
+    <!-- 히스토리 패널 -->
+    <div class="history-panel" id="historyPanel">
+      <div class="history-header">
+        <span>계산 기록</span>
+        <button class="clear-history" id="clearHistory">전체 삭제</button>
+      </div>
+      <ul class="history-list" id="historyList"></ul>
+    </div>
+
+    <!-- 디스플레이 -->
+    <div class="display">
+      <div class="expression" id="expression"></div>
+      <div class="result" id="result">0</div>
+    </div>
+
+    <!-- 모드 탭 -->
+    <div class="tabs">
+      <button class="tab active" data-mode="basic">기본</button>
+      <button class="tab" data-mode="scientific">공학용</button>
+    </div>
+
+    <!-- 기본 버튼 -->
+    <div class="buttons" id="basicButtons">
+      <button class="btn span-2 history-btn" id="historyBtn">📋 기록</button>
+      <button class="btn function" data-action="percent">%</button>
+      <button class="btn operator" data-action="divide">÷</button>
+
+      <button class="btn" data-value="7">7</button>
+      <button class="btn" data-value="8">8</button>
+      <button class="btn" data-value="9">9</button>
+      <button class="btn operator" data-action="multiply">×</button>
+
+      <button class="btn" data-value="4">4</button>
+      <button class="btn" data-value="5">5</button>
+      <button class="btn" data-value="6">6</button>
+      <button class="btn operator" data-action="subtract">−</button>
+
+      <button class="btn" data-value="1">1</button>
+      <button class="btn" data-value="2">2</button>
+      <button class="btn" data-value="3">3</button>
+      <button class="btn operator" data-action="add">+</button>
+
+      <button class="btn function" data-action="toggleSign">+/−</button>
+      <button class="btn" data-value="0">0</button>
+      <button class="btn" data-value=".">.</button>
+      <button class="btn equals" data-action="equals">=</button>
+
+      <button class="btn function span-2" data-action="clear">AC</button>
+      <button class="btn function" data-action="backspace">⌫</button>
+      <button class="btn function" data-action="sqrt">√</button>
+    </div>
+
+    <!-- 공학용 버튼 (추가) -->
+    <div class="buttons scientific hidden" id="scientificButtons">
+      <button class="btn function" data-action="sin">sin</button>
+      <button class="btn function" data-action="cos">cos</button>
+      <button class="btn function" data-action="tan">tan</button>
+      <button class="btn function" data-action="log">log</button>
+
+      <button class="btn function" data-action="ln">ln</button>
+      <button class="btn function" data-action="pow2">x²</button>
+      <button class="btn function" data-action="pow3">x³</button>
+      <button class="btn function" data-action="powN">xⁿ</button>
+
+      <button class="btn function" data-action="inv">1/x</button>
+      <button class="btn function" data-action="factorial">n!</button>
+      <button class="btn function" data-action="pi">π</button>
+      <button class="btn function" data-action="e">e</button>
+
+      <button class="btn function" data-action="abs">|x|</button>
+      <button class="btn function" data-action="ceil">⌈x⌉</button>
+      <button class="btn function" data-action="floor">⌊x⌋</button>
+      <button class="btn function" data-action="round">round</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
