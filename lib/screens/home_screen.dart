@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import '../widgets/ad_banner.dart';
 import 'calculator_screen.dart';
 import 'unit_converter_screen.dart';
 import 'percent_screen.dart';
 import 'date_calculator_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    FlutterNativeSplash.remove();
+  }
 
   static const _tools = [
     _ToolItem(
@@ -34,19 +46,6 @@ class HomeScreen extends StatelessWidget {
       color: Color(0xFF7D2B00),
     ),
   ];
-
-  void _navigate(BuildContext context, int index) {
-    final screens = [
-      const CalculatorScreen(),
-      const UnitConverterScreen(),
-      const PercentScreen(),
-      const DateCalculatorScreen(),
-    ];
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (_) => screens[index]),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -95,6 +94,19 @@ class HomeScreen extends StatelessWidget {
           const AdBanner(),
         ],
       ),
+    );
+  }
+
+  void _navigate(BuildContext context, int index) {
+    final screens = [
+      const CalculatorScreen(),
+      const UnitConverterScreen(),
+      const PercentScreen(),
+      const DateCalculatorScreen(),
+    ];
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (_) => screens[index]),
     );
   }
 }
