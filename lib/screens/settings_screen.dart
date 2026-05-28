@@ -15,7 +15,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   static const _privacyPolicyUrl =
       'https://ks9275.github.io/smart-calculator-plus/privacy_policy_ko';
   // TODO: replace with official support email before release
-  static const _contactEmail = 'ks9275ks9275@gmail.com';
+  static const _contactEmail = 'thekosolabs@gmail.com';
 
   @override
   void initState() {

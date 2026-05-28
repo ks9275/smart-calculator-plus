@@ -73,7 +73,7 @@ This policy may be updated from time to time. When changes are made, the "Last U
 
 If you have any questions about this privacy policy, please contact:
 
-**Email:** `contact@example.com` *(to be replaced with an official email before release)*
+**Email:** thekosolabs@gmail.com
 
 ---
 
