@@ -5,6 +5,7 @@ import 'calculator_screen.dart';
 import 'unit_converter_screen.dart';
 import 'percent_screen.dart';
 import 'date_calculator_screen.dart';
+import 'scientific_calculator_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -44,6 +45,12 @@ class _HomeScreenState extends State<HomeScreen> {
       label: '날짜 계산기',
       subtitle: 'D-Day · 날짜 차이 · 더하기',
       color: Color(0xFF7D2B00),
+    ),
+    _ToolItem(
+      icon: Icons.biotech_rounded,
+      label: '공학 계산기',
+      subtitle: 'sin · cos · log · √ · π',
+      color: Color(0xFF00695C),
     ),
   ];
 
@@ -103,6 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
       const UnitConverterScreen(),
       const PercentScreen(),
       const DateCalculatorScreen(),
+      const ScientificCalculatorScreen(),
     ];
     Navigator.push(
       context,
