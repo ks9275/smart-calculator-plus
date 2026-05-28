@@ -12,8 +12,8 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen> {
   PackageInfo? _info;
 
-  // TODO: replace with actual URL before release
-  static const _privacyPolicyUrl = '';
+  static const _privacyPolicyUrl =
+      'https://ks9275.github.io/smart-calculator-plus/privacy_policy_ko';
   // TODO: replace with official support email before release
   static const _contactEmail = 'ks9275ks9275@gmail.com';
 
@@ -40,17 +40,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     }
   }
 
-  void _onPrivacyPolicy() {
-    if (_privacyPolicyUrl.isEmpty) {
-      _showDialog(
-        title: '개인정보처리방침',
-        content: '개인정보처리방침 페이지는 현재 준비 중입니다.\n'
-            '출시 전 업데이트될 예정입니다.',
-      );
-    } else {
-      _launch(_privacyPolicyUrl);
-    }
-  }
+  void _onPrivacyPolicy() => _launch(_privacyPolicyUrl);
 
   void _onAdInfo() {
     _showDialog(
