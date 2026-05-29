@@ -13,10 +13,9 @@ class _AdBannerState extends State<AdBanner> {
   BannerAd? _ad;
   bool _loaded = false;
 
-  // Google official test IDs – never ship real IDs in source code
   static String get _adUnitId => Platform.isAndroid
-      ? 'ca-app-pub-3940256099942544/6300978111'
-      : 'ca-app-pub-3940256099942544/2934735716';
+      ? 'ca-app-pub-9432771238426941/8176788357'
+      : 'ca-app-pub-9432771238426941/8176788357';
 
   @override
   void initState() {
