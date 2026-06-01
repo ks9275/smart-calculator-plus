@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import '../services/interstitial_ad_service.dart';
 import '../widgets/ad_banner.dart';
 import 'calculator_screen.dart';
 import 'unit_converter_screen.dart';
@@ -20,6 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     FlutterNativeSplash.remove();
+    InterstitialAdService.preload();
   }
 
   static const _tools = [
@@ -123,6 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
       const DateCalculatorScreen(),
       const ScientificCalculatorScreen(),
     ];
+    InterstitialAdService.showIfReady();
     Navigator.push(
       context,
       MaterialPageRoute(builder: (_) => screens[index]),

@@ -35,7 +35,7 @@
             android:value="2" />
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-9432771238426941~6468651099"/>
+            android:value="ca-app-pub-7364238257602037~8555828198"/>
         <!-- Disable WorkManager auto-init to prevent crash with google_mobile_ads 8.x -->
         <provider
             android:name="androidx.startup.InitializationProvider"
